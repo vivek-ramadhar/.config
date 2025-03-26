@@ -1,429 +1,669 @@
-# -- SNIPPETS --
-#
-# new glossary entry
-snippet gloss "Glossary Entry"  b
-	\newglossaryentry{${1:entry}}{
-			name = {${2:name}},
-			symbol = {\ensuremath{${3:symbol}}},
-			description = {${4:description}}
-	}
-#
-
-
-
-# beamer frame enviornment
-snippet frame "Beamer Frame" b
-	\begin{frame}
-
-		\textbf{${1:label}} ${2:claim}
-		\vspace{.2in}
-		\pause
-
-
-	\end{frame}
-
-	%%% -------------------------------------------------------
-#
-
-
-
-
-# beamer item enviornment
-snippet bemit "Beamer Item" b
-	\textbf{${1:label}} ${2:claim}
-	\vspace{.2in}
-	\pause
-#
-
-
-# Ttheorem enviornment
-snippet Tthm "Ttheorem" b
-	\vspace{.05in}
-	\begin{Tthm} \label{${1:label}}
-		${2:claim}
-	\end{Tthm}
-
-	\begin{proof}
-		${0}
-    \qed
-	\end{proof}
-#
-
-
-# Mtheorem enviornment
-snippet Mthm "Mtheorem" b
-	\vspace{.05in}
-	\begin{Mthm} \label{${1:label}}
-		${2:claim}
-	\end{Mthm}
-
-	\begin{proof}
-		${0}
-    \qed
-	\end{proof}
-#
-
-
-# Ctheorem enviornment
-snippet Cthm "Ctheorem" b
-	\vspace{.05in}
-	\begin{Cthm} \label{${1:label}}
-		${2:claim}
-	\end{Cthm}
-
-	\begin{proof}
-		${0}
-    \qed
-	\end{proof}
-#
-
-
-# Rtheorem enviornment
-snippet Rthm "Rtheorem" b
-	\vspace{.05in}
-	\begin{Rthm} \label{${1:label}}
-		${2:claim}
-	\end{Rthm}
-
-	\begin{proof}
-		${0}
-    \qed
-	\end{proof}
-#
-
-
-# Ltheorem enviornment
-snippet Lthm "Ltheorem" b
-	\vspace{.05in}
-	\begin{Lthm} \label{${1:label}}
-		${2:claim}
-	\end{Lthm}
-
-	\begin{proof}
-		${0}
-    \qed
-	\end{proof}
-#
-
-
-# Ptheorem enviornment
-snippet Pthm "Ptheorem" b
-	\vspace{.05in}
-	\begin{Pthm} \label{${1:label}}
-		${2:claim}
-	\end{Pthm}
-
-	\begin{proof}
-		${0}
-    \qed
-	\end{proof}
-#
-
-
-# Dtheorem enviornment
-snippet Dthm "Dtheorem" b
-	\vspace{.05in}
-	\begin{Dthm} \label{${1:label}}
-		${2:claim}
-	\end{Dthm}
-
-	\begin{proof}
-		${0}
-    \qed
-	\end{proof}
-#
-
-
-# custom theorem enviornment
-snippet customthm "Custom Theorem" b
-	\vspace{.1in}
-	\begin{customthm}{(${1:label})}
-		${2:claim}
-	\end{customthm}
-
-	\begin{Answer}
-		${0}
-    \qed
-	\end{Answer}
-#
-
-
-# factoidbox enviornment
-snippet factoidbox "Factoid Box" b
-	\label{rule:${2:$1}}
-	\factoidbox{
-		\textbf{(${1:name})} ${0}
-	}
-#
-
-# framed text enviornment
-snippet textbox "Text Box" b
-	\begin{tcolorbox}
-		${0}
-	\end{tcolorbox}
-#
-
-# new command
-snippet qt "New Command" b
-	\qt{${1:\forall}}{${2:\alpha}}${0}
-#
-
-# new command
-snippet qte "New Command" b
-	\qt{${1:\exists}}{${2:\alpha}}${0}
-#
-
-# new command
-snippet nc "New Command" b
-	\newcommand{${1:cmd}}[${2:opt}]{${3:realcmd}} ${0}
-#
-
-#usepackage
-snippet up "Use Package" b
-	\usepackage${1}{${2:package}} ${0}
-#
-
-# \begin{}...\end{}
-snippet begin "Begin End"
-	\begin{${1:env}}
-		${2:${VISUAL}}
-	\end{$1}${0}
-#
-
-# Align(ed)
-snippet align "Align Env" b
-	\begin{align${1:ed}}
-		\label{${2:name}}
-		${0}
-	\end{align$1}
-#
-
-# Quote
-snippet quote "Quotation" b
-	\vspace{-.1in}
-	\begin{quote}\singlespacing\small
-		${0}
-		\hfill(p.~${1})
-	\end{quote}
-	\vspace{.1in}
-#
-
-# Labelalign
-snippet labelalign "Label Align" b
-	\vspace{.05in}
-	\begin{labelalign} %\small\onehalfspacing
-		\item[${2:\it} ${3:Label:}] ${0}
-	\end{labelalign}
-	\vspace{.05in}
-#
-
-# Enumerate
-snippet enum "Enumerate" b
-	\begin{enumerate}
-		\item[${1:\it }${2}:] ${0}
-	\end{enumerate}
-#
-
-# Itemize
-snippet item "Itemize" b
-	\begin{itemize}
-		\item[${1:\it} ${2:Label:}] ${0}
-	\end{itemize}
-#
-
-#Item
-snippet i "Item"
-	\item[${1:\it} ${2}:] ${0}
-#
-
-# Cases
-snippet case "Cases" 
-	${1:LHS}=	
-	\begin{cases}
-		${2:Value}, &\text{ if } ${3:case}\\
-		${4:Value}, &\text{ otherwise.} ${5:otherwise}.
-	\end{cases}${0}
-#
-
-# Section
-snippet sec "Section" b
-	\section{${1:Name}}%
-		\label{sec:${2:$1}}
-		${0}
-#
-
-# Sub Section
-snippet sub "Sub Section" b
-	\subsection{${1:Name}}%
-		\label{sub:${2:$1}}
-		${0}
-#
-
-# Sub Sub Section
-snippet ssub "Sub Sub Section" b
-	\subsubsection{${1:Name}}%
-		\label{sub:${2:$1}}
-		${0}
-#
-
-# Hyper Section
-snippet hsec "Hyper Section" b
-	\hypsection{${1:Name}}%
-		\label{sec:${2:$1}}
-		${0}
-#
-
-# Hyper Sub Section
-snippet hsub "Hyper Sub Section" b
-	\hypsubsection{${1:Name}}%
-		\label{sub:${2:$1}}
-		${0}
-#
-
-# Hyper Sub Sub Section
-snippet hssub "Hyper Sub Sub Section" b
-	\hypsubsubsection{${1:Name}}%
-		\label{sub:${2:$1}}
-		${0}
-#
-
-#Formating text: italic, bold, underline, small capital, emphase ..
-snippet it "Italics" wi
-	\textit{${1}}${0}
-#
-
-snippet tt "Teletype" wi
-	\texttt{${1}}${0}
-#
-
-snippet bf "Bold" wi
-	\textbf{${1}}${0}
-#
-
-snippet sc "Small Caps" wi
-	\textsc{${1}}${0}
-#
-
-snippet tsub "Subscripted" i
-	\textsubscript{${1}}${0}
-#
-
-snippet tsup "Superscripted" i
-	\textsuperscript{${1}}${0}
-#
-
-#Math font
-snippet mf "Mathfrak" w
-	\mathfrak{${1}}${0}
-#
-
-snippet mc "Mathcal" w
-	\mathcal{${1}}${0}
-#
-
-snippet ms "Mathscr" w
-	\mathscr{${1}}${0}
-#
-
-snippet aref "Bold Ref" w
-	\textbf{\aref{${1:Ref}}}${0}
-#
-
-snippet bref "Bold Ref" w
-	\textbf{\ref{${1:Ref}}}${0}
-#
-
-snippet eref "Double Ref" w
-	\eref{${1}}{${2}}${0}
-#
-
-#misc
-snippet fproof "Footnote Proof" bi
-	\footnote{\textit{Proof:} ${1:Begin} \qed}${0}
-#
-
-snippet lab "Label" wi
-	\label{${1:LABEL}}${0}
-#
-
-snippet fn "Footnote" wi
-	\footnote{${1:FOOTNOTE}}${0}
-#
-
-snippet fig "Figure environment" b
-	\begin{figure}
-	\begin{center}
-		\includegraphics[scale=${1}]{Figures/${2}}
-	\end{center}
-	\caption{${3}}
-	\label{fig:${4}}
-	\end{figure}
+# Basic LaTeX snippets
+snippet beg "begin{} / end{}"
+\begin{${1}}
 	${0}
-#
+\end{$1}
+endsnippet
 
-snippet tikz "Tikz environment" b
-	\begin{figure}[htpb]
-	\begin{center}
-	\begin{tikzpicture}[scale=${1:1}, transform shape]
-		${2}
-	\end{tikzpicture}
-	\end{center}
-	\caption{${3}}%
-	\label{fig:${4}}
-	\end{figure}
+snippet mk "Math"
+$${1}$${0}
+endsnippet
+
+snippet dm "Display Math"
+\[
+${1}
+.\] ${0}
+endsnippet
+
+# Document templates
+snippet notestemplate "Lecture Notes Template"
+\documentclass{article}
+
+\usepackage{amsmath, amsthm, amssymb, amsfonts}
+\usepackage{thmtools}
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage{geometry}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{framed}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tcolorbox}
+
+\colorlet{LightGray}{White!90!Periwinkle}
+\colorlet{LightOrange}{Orange!15}
+\colorlet{LightGreen}{Green!15}
+
+\newcommand{\HRule}[1]{\rule{\linewidth}{#1}}
+
+\declaretheoremstyle[name=Theorem,]{thmsty}
+\declaretheorem[style=thmsty,numberwithin=section]{theorem}
+\tcolorboxenvironment{theorem}{colback=LightGray}
+
+\declaretheoremstyle[name=Proposition,]{prosty}
+\declaretheorem[style=prosty,numberlike=theorem]{proposition}
+\tcolorboxenvironment{proposition}{colback=LightOrange}
+
+\declaretheoremstyle[name=Principle,]{prcpsty}
+\declaretheorem[style=prcpsty,numberlike=theorem]{principle}
+\tcolorboxenvironment{principle}{colback=LightGreen}
+
+\setstretch{1.2}
+\geometry{
+    textheight=9in,
+    textwidth=5.5in,
+    top=1in,
+    headheight=12pt,
+    headsep=25pt,
+    footskip=30pt
+}
+
+% ------------------------------------------------------------------------------
+
+\begin{document}
+
+% ------------------------------------------------------------------------------
+% Cover Page and ToC
+% ------------------------------------------------------------------------------
+
+\title{ \normalsize \textsc{}
+		\\ [2.0cm]
+		\HRule{1.5pt} \\
+		\LARGE \textbf{\uppercase{Template Title}
+		\HRule{2.0pt} \\ [0.6cm] \LARGE{Subtitle} \vspace*{10\baselineskip}}
+		}
+\date{}
+\author{\textbf{Author} \\ 
+		Who? \\
+		Where? \\
+		When?}
+
+\maketitle
+\newpage
+
+\tableofcontents
+\newpage
+
+% ------------------------------------------------------------------------------
+
+\section{Examples}
+
+\begin{theorem}
+    This is a theorem.
+\end{theorem}
+
+\begin{proposition}
+    This is a proposition.
+\end{proposition}
+
+\begin{principle}
+    This is a principle.
+\end{principle}
+
+% Maybe I need to add one more part: Examples.
+% Set style and colour later.
+
+\subsection{Pictures}
+
+\begin{figure}[htbp]
+    \center
+    \includegraphics[scale=0.06]{img/photo.jpg}
+    \caption{Sydney, NSW}
+\end{figure}
+
+\subsection{Citation}
+
+This is a citation\cite{Eg}.
+
+\newpage
+
+% ------------------------------------------------------------------------------
+% Reference and Cited Works
+% ------------------------------------------------------------------------------
+
+\bibliographystyle{IEEEtran}
+\bibliography{References.bib}
+
+% ------------------------------------------------------------------------------
+
+\end{document}
+endsnippet
+
+snippet hwtemplate "Basic Homework Template"
+\documentclass[12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{latexsym,amsfonts,amssymb,amsthm,amsmath}
+
+\setlength{\parindent}{0in}
+\setlength{\oddsidemargin}{0in}
+\setlength{\textwidth}{6.5in}
+\setlength{\textheight}{8.8in}
+\setlength{\topmargin}{0in}
+\setlength{\headheight}{18pt}
+
+
+
+\title{Math ${1} Weekly Homework ${2}}
+\author{${3}}
+
+\begin{document}
+
+\maketitle
+
+\vspace{0.5in}
+
+
+
+\subsection*{Exercise 1}
+(Statement of problem goes here.)\\
+
+\begin{proof}
+(Type your proof here.)
+\end{proof}
+
+\vspace{2in} %Leave space for comments!
+
+
+\subsection*{Exercise 2}
+(Statement of problem goes here.)\\
+
+\begin{proof}
+(Type your proof here.)
+\end{proof}
+
+\vspace{2in} %Leave more space for comments!
+
+
+
+
+
+
+
+\end{document}
+endsnippet
+
+snippet template "Basic template"
+\documentclass[12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{amsmath, amssymb, latexsym, amsfonts, amsthm}
+
+\setlength{\parindent}{0in}
+\setlength{\oddsidemargin}{0in}
+\setlength{\textwidth}{6.5in}
+\setlength{\textheight}{8.8in}
+\setlength{\topmargin}{0in}
+\setlength{\headheight}{18pt}
+
+\title{${1}}
+\author{Vivek Ramadhar}
+
+% figure support
+\usepackage{import}
+\usepackage{xifthen}
+\pdfminorversion=7
+\usepackage{pdfpages}
+\usepackage{transparent}
+\newcommand{\incfig}[1]{%
+	\def\svgwidth{\columnwidth}
+	\import{./figures/}{#1.pdf_tex}
+}
+
+\pdfsuppresswarningpagegroup=1
+
+\begin{document}
+	\maketitle
+	\vspace{0.5in}
+	\subsection*{1)}
 	${0}
+\end{document}
+endsnippet
 
-snippet rule "Rule" bi
-	\factoidbox{
-	\begin{Rthm} \label{rule:${4:label}}
-		\textbf{($${1:\boldsymbol}${2:SYM}$${3:IE})}~~ ${0:${VISUAL}}
-	\end{Rthm}
-	}
+# Math Symbols
+snippet ... "ldots"
+\ldots
+endsnippet
 
-snippet lemma "Lemma" bi
-	\begin{Lthm} \label{lemma:${1:label}}
-		${0:${VISUAL}}
-	\end{Lthm}
-  \vspace{-.2in}
+snippet table "Table environment"
+\begin{table}[${1:htpb}]
+	\centering
+	\caption{${2:caption}}
+	\label{tab:${3:label}}
+	\begin{tabular}{${5:c}}
+	${0}
+	\end{tabular}
+\end{table}
+endsnippet
 
-snippet prop "Proposition" bi
-	\begin{Pthm} \label{${1:label}}
-		${0:${VISUAL}}
-	\end{Pthm}
+snippet fig "Figure environment"
+\begin{figure}[${1:htpb}]
+	\centering
+	${2:\includegraphics[width=0.8\textwidth]{$3}}
+	\caption{${4:$3}}
+	\label{fig:${5:${3/\W+/-/g}}}
+\end{figure}
+endsnippet
 
-snippet thrm "Theorem" bi
-	\begin{theorem} \label{${1:label}}
-		${0:${VISUAL}}
-	\end{theorem}
+snippet enum "Enumerate"
+\begin{enumerate}
+	\item ${0}
+\end{enumerate}
+endsnippet
 
-snippet prf "Proof" bi
-	\begin{quote} 
-		\textit{Proof:}
-		${0:${VISUAL}}
-		\qed
-	\end{quote}
+snippet item "Itemize"
+\begin{itemize}
+	\item ${0}
+\end{itemize}
+endsnippet
 
-snippet def "Definition" bi
-	\begin{definition}[$1]
-		${0:${VISUAL}}
-	\end{definition}
+snippet desc "Description"
+\begin{description}
+	\item[$1] ${0}
+\end{description}
+endsnippet
 
-snippet prob "Problem" bi
-	\begin{problem}[$1]
-		${0:${VISUAL}}
-	\end{problem}
+snippet pac "Package"
+\usepackage[${1:options}]{${2:package}}${0}
+endsnippet
 
-snippet corl "Corollary" bi
-	\begin{corollary}[$1]
-		${0:${VISUAL}}
-	\end{corollary}
+snippet => "implies"
+\implies
+endsnippet
 
-snippet example "Example" bi
-	\begin{example}[$1]
-		${0:${VISUAL}}
-	\end{example}
+snippet =< "implied by"
+\impliedby
+endsnippet
 
+# Math-specific snippets - Math mode not required anymore
+snippet iff "iff"
+\iff
+endsnippet
 
+snippet // "Fraction"
+\\frac{${1}}{${2}}${0}
+endsnippet
 
+snippet / "Fraction"
+\\frac{${1}}{${2}}${0}
+endsnippet
 
+snippet ceil "ceil"
+\left\lceil ${1} \right\rceil ${0}
+endsnippet
 
+snippet floor "floor"
+\left\lfloor ${1} \right\rfloor${0}
+endsnippet
+
+snippet pmat "pmat"
+\begin{pmatrix} ${1} \end{pmatrix} ${0}
+endsnippet
+
+snippet bmat "bmat"
+\begin{bmatrix} ${1} \end{bmatrix} ${0}
+endsnippet
+
+snippet () "left( right)"
+\left( ${1} \right) ${0}
+endsnippet
+
+snippet lr "left( right)"
+\left( ${1} \right) ${0}
+endsnippet
+
+snippet lr( "left( right)"
+\left( ${1} \right) ${0}
+endsnippet
+
+snippet lr| "left| right|"
+\left| ${1} \right| ${0}
+endsnippet
+
+snippet lr{ "left\{ right\}"
+\left\\{ ${1} \right\\} ${0}
+endsnippet
+
+snippet lrb "left\{ right\}"
+\left\\{ ${1} \right\\} ${0}
+endsnippet
+
+snippet lr[ "left[ right]"
+\left[ ${1} \right] ${0}
+endsnippet
+
+snippet lra "leftangle rightangle"
+\left<${1} \right>${0}
+endsnippet
+
+snippet conj "conjugate"
+\overline{${1}}${0}
+endsnippet
+
+snippet sum "sum"
+\sum_{n=${1:1}}^{${2:\infty}} ${3:a_n z^n}
+endsnippet
+
+snippet taylor "taylor"
+\sum_{${1:k}=${2:0}}^{${3:\infty}} ${4:c_$1} (x-a)^$1 ${0}
+endsnippet
+
+snippet lim "limit"
+\lim_{${1:n} \to ${2:\infty}} 
+endsnippet
+
+snippet limsup "limsup"
+\limsup_{${1:n} \to ${2:\infty}} 
+endsnippet
+
+snippet prod "product"
+\prod_{${1:n=${2:1}}}^{${3:\infty}} ${4} ${0}
+endsnippet
+
+snippet part "d/dx"
+\frac{\partial ${1:V}}{\partial ${2:x}} ${0}
+endsnippet
+
+snippet sq "\sqrt{}"
+\sqrt{${1}} ${0}
+endsnippet
+
+snippet sr "^2"
+^2
+endsnippet
+
+snippet cb "^3"
+^3
+endsnippet
+
+snippet td "to the ... power"
+^{${1}}${0}
+endsnippet
+
+snippet rd "to the ... power"
+^{(${1})}${0}
+endsnippet
+
+snippet __ "subscript"
+_{${1}}${0}
+endsnippet
+
+snippet ooo "\infty"
+\infty
+endsnippet
+
+snippet rij "mrij"
+(${1:x}_${2:n})_{${3:$2}\\in${4:\\N}}${0}
+endsnippet
+
+snippet <= "leq"
+\le 
+endsnippet
+
+snippet >= "geq"
+\ge 
+endsnippet
+
+snippet EE "exists"
+\exists 
+endsnippet
+
+snippet AA "forall"
+\forall 
+endsnippet
+
+snippet xnn "xn"
+x_{n}
+endsnippet
+
+snippet ynn "yn"
+y_{n}
+endsnippet
+
+snippet xii "xi"
+x_{i}
+endsnippet
+
+snippet yii "yi"
+y_{i}
+endsnippet
+
+snippet xjj "xj"
+x_{j}
+endsnippet
+
+snippet yjj "yj"
+y_{j}
+endsnippet
+
+snippet xp1 "x"
+x_{n+1}
+endsnippet
+
+snippet xmm "x"
+x_{m}
+endsnippet
+
+snippet R0+ "R0+"
+\\R_0^+
+endsnippet
+
+snippet mcal "mathcal"
+\mathcal{${1}}${0}
+endsnippet
+
+snippet lll "l"
+\ell
+endsnippet
+
+snippet nabl "nabla"
+\nabla 
+endsnippet
+
+snippet diff "d/d{}"
+\frac{d}{d${1}}
+endsnippet
+
+snippet xx "cross"
+\times 
+endsnippet
+
+snippet pdiff "\frac{\partial}{\partial x}"
+\frac{\partial ${1}}{\partial {${2}}}
+endsnippet
+
+snippet ** "cdot"
+\cdot 
+endsnippet
+
+snippet norm "norm"
+\|${1}\|${0}
+endsnippet
+
+snippet sin "sin"
+\sin
+endsnippet
+
+snippet cos "cos"
+\cos
+endsnippet
+
+snippet tan "tan"
+\tan
+endsnippet
+
+snippet cot "cot"
+\cot
+endsnippet
+
+snippet ln "ln"
+\ln
+endsnippet
+
+snippet log "log"
+\log
+endsnippet
+
+snippet exp "exp"
+\exp
+endsnippet
+
+snippet dint "integral"
+\int_{${1:-\infty}}^{${2:\infty}} ${3} ${0}
+endsnippet
+
+snippet arcsin "arcsin"
+\arcsin
+endsnippet
+
+snippet arccos "arccos"
+\arccos
+endsnippet
+
+snippet arctan "arctan"
+\arctan
+endsnippet
+
+snippet arccot "arccot"
+\arccot
+endsnippet
+
+snippet pi "pi"
+\pi
+endsnippet
+
+snippet -> "to"
+\to 
+endsnippet
+
+snippet <-> "leftrightarrow"
+\leftrightarrow
+endsnippet
+
+snippet !> "mapsto"
+\mapsto 
+endsnippet
+
+snippet invs "inverse"
+^{-1}
+endsnippet
+
+snippet compl "complement"
+^{c}
+endsnippet
+
+snippet \ "setminus"
+\setminus
+endsnippet
+
+snippet >> ">>"
+\gg
+endsnippet
+
+snippet << "<<"
+\ll
+endsnippet
+
+snippet ~~ "~"
+\sim 
+endsnippet
+
+snippet set "set"
+\\{${1}\\} ${0}
+endsnippet
+
+snippet || "mid"
+\mid 
+endsnippet
+
+snippet cc "subset"
+\subset 
+endsnippet
+
+snippet notin "not in "
+\not\in 
+endsnippet
+
+snippet inn "in "
+\in 
+endsnippet
+
+snippet NN "n"
+\N
+endsnippet
+
+snippet Nn "cap"
+\cap 
+endsnippet
+
+snippet UU "cup"
+\cup 
+endsnippet
+
+snippet uuu "bigcup"
+\bigcup_{${1:i \in ${2: I}}} ${0}
+endsnippet
+
+snippet nnn "bigcap"
+\bigcap_{${1:i \in ${2: I}}} ${0}
+endsnippet
+
+snippet OO "emptyset"
+\O
+endsnippet
+
+snippet RR "real"
+\mathbb{R}
+endsnippet
+
+snippet QQ "Q"
+\mathbb{Q}
+endsnippet
+
+snippet ZZ "Z"
+\mathbb{Z}
+endsnippet
+
+snippet bl "boldface text"
+\textbf{${1}}${0}
+endsnippet
+
+snippet it "\textit{}"
+\textit{${1}}${0}
+endsnippet
+
+snippet === "\equiv"
+\equiv
+endsnippet
+
+snippet <! "normal"
+\triangleleft 
+endsnippet
+
+snippet <> "hokje"
+\diamond 
+endsnippet
+
+snippet sts "text subscript"
+_\text{${1}} ${0}
+endsnippet
+
+snippet tt "text"
+\text{${1}}${0}
+endsnippet
+
+snippet case "cases"
+\begin{cases}
+	${1}
+\end{cases}
+endsnippet
+
+snippet ali "Align"
+\begin{align*}
+	${1}
+.\end{align*}
+endsnippet

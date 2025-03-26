@@ -117,7 +117,10 @@ return {
         w = { "<cmd>VimtexCountWords!<CR>", "word count" },
         -- w = { "<cmd>TermExec cmd='pandoc %:p -o %:p:r.docx'<CR>" , "word"},
         -- s = { "<cmd>lua function() require('cmp_vimtex.search').search_menu() end<CR>"           , "search citations" },
-        s = { "<cmd>e ~/.config/nvim/snippets/tex.snippets<CR>", "snippets edit" },
+        s = {
+          g = {"<cmd>e ~/.config/nvim/snippets/latex_general.lua<CR>", "general snippets"},
+          n = {"<cmd>e ~/.config/nvim/snippets/latex_number_theory.lua<CR>", "number theory snippets"}
+        },
         S = { "<cmd>TermExec cmd='ssh brastmck@eofe10.mit.edu'<CR>", "ssh" },
       },
       f = {
@@ -276,8 +279,16 @@ return {
           "Glossary.tex",
         },
         h = {
-          "<cmd>read ~/.config/nvim/templates/HandOut.tex<CR>",
-          "HandOut.tex",
+          h = {
+             "<cmd>read ~/.config/nvim/templates/HandOut.tex<CR>",
+             "HandOut.tex",
+          },
+          
+          m = {
+            "<cmd>read ~/.config/nvim/templates/m328k.tex<CR>",
+            "m328k.tex"
+          }
+
         },
         b = {
           "<cmd>read ~/.config/nvim/templates/PhilBeamer.tex<CR>",
