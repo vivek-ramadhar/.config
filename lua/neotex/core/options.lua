@@ -54,6 +54,11 @@ local options = {
   inccommand = "split",           -- shows all inline replacements in split
   autoread = true,
 
+  -- Folding Options
+  foldmethod = "expr",
+  foldexpr = "nvim_treesitter#foldexpr()",
+  foldenable = true,
+  foldlevel = 99,
 }
 
 -- turns on all values in options table above

@@ -81,7 +81,13 @@ function PdfAnnots()
   end
 
   local md = vim.fn.printf("Annotations/%s.md", vim.fn.fnamemodify(pdf, ":t:r"))
-  vim.fn.system(vim.fn.printf('pdfannots -o "%s" "%s"', md, pdf))
+  
+  -- Use Windows pdfannots on the Windows path
+  local win_pdf = WslToWindowsPath(pdf)
+  local win_md = WslToWindowsPath(md)
+
+  vim.fn.system(vim.fn.printf('powershell.exe pdfannots -o "%s" "%s"', win_md, win_pdf))
+
   vim.cmd.split(vim.fn.fnameescape(md))
 
   vim.fn.chdir(cwd)

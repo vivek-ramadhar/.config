@@ -79,7 +79,20 @@ return {
       nowait = true,  -- use `nowait` when creating keymaps
       prefix = "<leader>",
       mode = { "n", "v" },
-      b = { "<cmd>VimtexCompile<CR>", "build" },
+      -- b = { "<cmd>VimtexCompile<CR>", "build" },
+      b = {
+        name = "BUILD",
+        v = { "<cmd>VimtexCompile<CR>", "build latex"},
+        c = {
+          name = "C++",
+          c = {"<cmd>term g++ -std=c++17 % -o %:r && ./%r<CR>", "compile and run"},
+          d = {"<cmd>term g++ -std=c++17 % -g % -o %r<CR>", "compile with debug"},
+          f = {"<cmd>lua vim.lsp.buf.format()<CR>", "foramt file"},
+          t = {"<cmd>term clang-tidy %<CR>", "run clang-tidy"},
+          b = {"<cmd>CMakeBuild<CR>", "CMake build"},
+          g = {"<cmd>CMakeGenerate<CR>", "CMake generate"},
+        }
+      },
       c = { "<cmd>vert sb<CR>", "create split" },
       d = { "<cmd>update! | lua Snacks.bufdelete()<CR>", "delete buffer" },
       -- d = { "<cmd>update! | bdelete!<CR>", "delete buffer" },
@@ -89,7 +102,7 @@ return {
       k = { "<cmd>on<CR>", "max split" },
       q = { "<cmd>wa! | qa!<CR>", "quit" },
       u = { "<cmd>Telescope undo<CR>", "undo" },
-      v = { "<cmd>VimtexView<CR>", "view" },
+      v = { "<cmd>lua OpenPDFInWindows()<CR>", "view" },
       w = { "<cmd>wa!<CR>", "write" },
       -- z = { "<cmd>ZenMode<CR>", "zen" },
       a = {

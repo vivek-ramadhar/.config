@@ -34,7 +34,8 @@ return {
         -- "emmet_ls",
         "pyright",
         -- "tsserver",
-        -- "lua_ls",   -- seems to cause trouble
+         "lua_ls",   -- seems to cause trouble
+         "clangd",
         -- "cssls",
         -- "tailwindcss",
         -- "svelte"
@@ -52,6 +53,8 @@ return {
         "isort",    -- python formatter
         "black",    -- python formatter
         "pylint",   -- python linter
+        "clang-format", -- add C++ formatter
+        "cpplint",     -- add C++ linter
         -- "eslint_d", -- js linter
       },
     })

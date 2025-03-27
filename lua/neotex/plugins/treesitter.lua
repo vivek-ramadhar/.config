@@ -17,6 +17,8 @@ return {
       },
       -- enable indentation
       indent = { enable = true },
+      -- enable folding
+      fold = { enable = true },
       -- enable autotagging (w/ nvim-ts-autotag plugin)
       autotag = {
         enable = false,
@@ -51,7 +53,12 @@ return {
         -- "graphql",
         -- "dockerfile",
         -- "perl",
+        "c",
+        "cpp",
+        "cmake",
+        "make",
       },
+            
       auto_install = true,
       ignore_install = { "latex" }, -- List of parsers to ignore installing
       autopairs = {
@@ -71,5 +78,11 @@ return {
 
     -- enable nvim-ts-context-commentstring plugin for commenting tsx and jsx
     require("ts_context_commentstring").setup({})
+
+    vim.opt.foldmethod = "expr"
+    vim.opt.foldexpr = "nvim_treesitter#foldexpre()"
+
+    vim.opt.foldenable = false
+    vim.opt.foldlevel = 99
   end,
 }

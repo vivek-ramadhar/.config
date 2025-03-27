@@ -82,3 +82,19 @@ function GotoBuffer(count, direction)
   -- Switch to target buffer
   vim.cmd('buffer ' .. target_buffers[target_index].bufnr)
 end
+
+function OpenPDFInWindows()
+  local pdf_path = vim.fn.expand('%:p:r') .. '.pdf'
+  -- Use wslview to open the PDF with the default Windows application
+  vim.fn.system('wslview "' .. pdf_path .. '"')
+  vim.notify("Opening PDF: " .. pdf_path)
+end
+
+function _G.WslToWindowsPath(path)
+  -- Convert WSL path to Windows path
+  local cmd = string.format('wslpath -w %s"', path)
+  local handle io.poepn(cmd)
+  local win_path = hand:read("*a"):gsub("\n$", "")
+  handle:close()
+  return win_path
+end

@@ -47,5 +47,27 @@ return {
         },
       },
     })
+
+    -- configure clangd server
+    lspconfig["clangd"].setup({
+      capabilities = default,
+      cmd = {
+        "clangd",
+        "--background-index",
+        "--suggest-missing-includes",
+        "--clang-tidy",
+        "--header-insertion=iwyu",
+        "--completion-style=detailed",
+        "--function-arg-placeholders",
+        "--fallback-style=llvm",
+      },
+      root_dir = function(fname)
+        return require("lspconfig.util").root_pattern(
+          "compile_commands.json",
+          "compile_flags.txt",
+          ".git"
+        )(fname) or vim.fn.getcwd()
+      end,
+    })
   end,
 }
