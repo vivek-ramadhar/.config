@@ -75,4 +75,4 @@ lua/neotex/core/options.lua: General Neovim options
 I created this configuration because I was tired of using CLion to work on a raytracer in C++ while enjoying Neovim for editing LaTeX documents. This setup offers the best of both worlds - the lightweight, keyboard-driven efficiency of Neovim combined with the powerful development tools needed for complex C++ projects.
 The WSL-specific optimizations ensure that performance remains snappy even when working across the Windows-Linux boundary, which traditionally can cause significant slowdowns.
 
-![image](https://github.com/user-attachments/assets/7b96a598-7ecc-4150-b28b-82ec0fb3fa5b)
+![Screenshot 2025-03-26 222423](https://github.com/user-attachments/assets/cdebdc0c-809c-4ed9-b2e7-ef35b2e67f23)
